@@ -1,22 +1,22 @@
-package io.asaha.trino.groupprovider.ldap;
+package org.osclimate.trino.groupprovider.github;
 
 import io.trino.spi.security.GroupProvider;
 import io.trino.spi.security.GroupProviderFactory;
 
 import java.util.Map;
 
-public class LdapGroupProviderFactory implements GroupProviderFactory {
+public class GitHubGroupProviderFactory implements GroupProviderFactory {
 
     @Override
     public String getName() {
-        return "ldap-ad";
+        return "github-gp";
     }
 
     @Override
     public GroupProvider create(Map<String, String> config) {
-        if (config.isEmpty()) {
-            throw new IllegalArgumentException("this group provider requires configuration properties");
-        }
-        return new LdapGroupProvider(config);
+        //if (config.isEmpty()) {
+        //    throw new IllegalArgumentException("this group provider requires configuration properties");
+        //}
+        return new GitHubGroupProvider(config);
     }
 }
