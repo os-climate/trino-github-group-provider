@@ -9,7 +9,7 @@ public class GitHubGroupProviderFactory implements GroupProviderFactory {
 
     @Override
     public String getName() {
-        return "github-gp";
+        return "osc-github-gp";
     }
 
     @Override
