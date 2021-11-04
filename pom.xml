@@ -4,9 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>io.asaha</groupId>
-    <artifactId>trino-group-provider-ldap-ad</artifactId>
-    <version>1.0</version>
+    <groupId>org.osclimate</groupId>
+    <artifactId>trino-group-provider-github-gp</artifactId>
+    <version>0.1.0</version>
     <packaging>trino-plugin</packaging>
 
     <properties>
