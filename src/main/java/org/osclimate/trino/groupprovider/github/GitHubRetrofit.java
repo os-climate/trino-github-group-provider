@@ -11,7 +11,7 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.jackson.JacksonConverterFactory;
 
-public class GitHubApiClient {
+public class GitHubRetrofit {
     public static <T> T getClient(Class<T> type, String url) {
         OkHttpClient.Builder clientBuilder = new OkHttpClient.Builder();
 

@@ -1,8 +1,8 @@
 package org.osclimate.trino.groupprovider.cli;
 
 import org.osclimate.trino.groupprovider.github.model.Team;
-import org.osclimate.trino.groupprovider.github.GitHubApiClient;
-import org.osclimate.trino.groupprovider.github.GitHubService;
+import org.osclimate.trino.groupprovider.github.GitHubRetrofit;
+import org.osclimate.trino.groupprovider.github.GitHubRest;
 
 import java.util.List;
 
@@ -19,7 +19,7 @@ class ListTeams {
 	    System.exit(1);
 	}
 	System.out.printf("teams for github org %s\n", org);
-        GitHubService api = GitHubApiClient.getClient(GitHubService.class, "https://api.github.com");
+        GitHubRest api = GitHubRetrofit.getClient(GitHubRest.class, "https://api.github.com");
 	retrofit2.Response<List<Team>> response = api.listTeams("Bearer " + apiToken, org, 1000, 1).execute();
         List<Team> teams = response.body();
 	for (Team t : teams) {
