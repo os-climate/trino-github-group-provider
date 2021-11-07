@@ -12,7 +12,7 @@ import java.util.List;
 import org.osclimate.trino.groupprovider.github.model.Team;
 import org.osclimate.trino.groupprovider.github.model.User;
 
-public interface GitHubService {
+public interface GitHubRest {
     // https://docs.github.com/en/enterprise-cloud@latest/rest/reference/teams#list-teams
     @Headers("accept: application/vnd.github.v3+json")
     @GET("/orgs/{org}/teams")

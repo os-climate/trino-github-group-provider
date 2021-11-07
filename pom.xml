@@ -7,7 +7,8 @@
     <groupId>org.osclimate</groupId>
     <artifactId>trino-group-provider-osc-github-gp</artifactId>
     <version>0.1.0</version>
-    <packaging>trino-plugin</packaging>
+    <!-- <packaging>trino-plugin</packaging> -->
+    <packaging>jar</packaging>
 
     <properties>
         <trino.version>359</trino.version>
@@ -61,7 +62,7 @@
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-annotations</artifactId>
             <version>${dep.jackson.version}</version>
-            <scope>provided</scope>
+	    <!-- <scope>provided</scope> -->
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
@@ -112,8 +113,13 @@
             </plugin>
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
-                <version>3.3.0</version>
-                <configuration>
+		<version>3.3.0</version>
+		<configuration>
+		    <archive>
+	                <manifest>
+			    <addClasspath>true</addClasspath>
+			</manifest>
+		    </archive>
                     <descriptorRefs>
                         <descriptorRef>jar-with-dependencies</descriptorRef>
                     </descriptorRefs>
