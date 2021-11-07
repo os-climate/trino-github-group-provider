@@ -24,7 +24,7 @@ class ListTeams {
 	    System.exit(1);
 	}
 	System.out.printf("teams for github org %s\n", org);
-        GitHubService api = getService(GitHubService.class, "https://api.github.com");
+        //GitHubService api = getService(GitHubService.class, "https://api.github.com");
     }
 
     // this should eventually be in its own class so it is reusable
@@ -45,5 +45,4 @@ class ListTeams {
             .build()
             .create(type);
     }
-
 }
