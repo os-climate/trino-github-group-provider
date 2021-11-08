@@ -1,4 +1,4 @@
-package org.osclimate.trino.groupprovider.github;
+package org.osclimate.githubrest;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -9,8 +9,8 @@ import retrofit2.http.Query;
 
 import java.util.List;
 
-import org.osclimate.trino.groupprovider.github.model.Team;
-import org.osclimate.trino.groupprovider.github.model.User;
+import org.osclimate.githubrest.model.Team;
+import org.osclimate.githubrest.model.User;
 
 public interface GitHubRest {
     // https://docs.github.com/en/enterprise-cloud@latest/rest/reference/teams#list-teams

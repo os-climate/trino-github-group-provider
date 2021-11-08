@@ -1,4 +1,4 @@
-package org.osclimate.trino.groupprovider.github;
+package org.osclimate.githubrest;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
@@ -12,6 +12,8 @@ import retrofit2.Retrofit;
 import retrofit2.converter.jackson.JacksonConverterFactory;
 
 public class GitHubRetrofit {
+    // currently used to create GitHubRest api objects, however
+    // note this is generic, and could create any Retrofit api interface type
     public static <T> T getClient(Class<T> type, String url) {
         OkHttpClient.Builder clientBuilder = new OkHttpClient.Builder();
 

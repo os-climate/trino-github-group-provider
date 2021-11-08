@@ -1,9 +1,7 @@
-package org.osclimate.trino.groupprovider.github.model;
+package org.osclimate.githubrest.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-//import com.google.common.collect.ImmutableList;
-//import io.trino.spi.block.BlockBuilder;
 
 import java.time.ZonedDateTime;
 import java.util.List;
