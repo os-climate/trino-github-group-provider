@@ -14,8 +14,7 @@ mvn clean package
 ```
 $ export GITHUB_API_TOKEN=your_token
 
-$ java -cp target/trino-group-provider-osc-github-gp-0.1.0-jar-with-dependencies.jar org.osclimate.trino.groupprovider.cli.ListTeams os-climate
-
+$ java -cp cli/target/osc-github-rest-cli-0.1.0-jar-with-dependencies.jar org.osclimate.githubrest.cli.ListTeams os-climate
 Nov 07, 2021 1:51:14 PM okhttp3.internal.platform.Platform log
 INFO: --> GET https://api.github.com/orgs/os-climate/teams?per_page=1000&page=1
 Nov 07, 2021 1:51:14 PM okhttp3.internal.platform.Platform log
