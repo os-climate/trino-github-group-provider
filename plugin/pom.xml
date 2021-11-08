@@ -4,12 +4,39 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <parent>
+	<groupId>org.osclimate</groupId>
+	<artifactId>meta-build</artifactId>
+	<version>${revision}</version>
+    </parent>
+
     <groupId>org.osclimate</groupId>
-    <artifactId>trino-group-provider-osc-github-gp</artifactId>
-    <version>0.1.0</version>
+    <artifactId>osc-trino-github-gp</artifactId>
+    <version>${revision}</version>
+    <!-- special packaging target from trino-maven-plugin -->
     <packaging>trino-plugin</packaging>
 
     <dependencies>
+        <dependency>
+	    <groupId>org.osclimate</groupId>
+	    <artifactId>osc-github-rest</artifactId>
+	    <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>30.1-jre</version>
+        </dependency>
+
+	<dependency>
+	    <!-- trino-maven-plugin seems to insist that this be present, with provided scope -->
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>${dep.jackson.version}</version>
+	    <scope>provided</scope>
+        </dependency>
+
         <dependency>
             <groupId>io.airlift</groupId>
             <artifactId>log</artifactId>

@@ -1,8 +1,8 @@
 package org.osclimate.trino.groupprovider.cli;
 
-import org.osclimate.trino.groupprovider.github.model.Team;
-import org.osclimate.trino.groupprovider.github.GitHubRetrofit;
-import org.osclimate.trino.groupprovider.github.GitHubRest;
+import org.osclimate.githubrest.model.Team;
+import org.osclimate.githubrest.GitHubRetrofit;
+import org.osclimate.githubrest.GitHubRest;
 
 import java.util.List;
 

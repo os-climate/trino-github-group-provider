@@ -6,14 +6,22 @@
 
     <parent>
 	<groupId>org.osclimate</groupId>
-	<artifactId>osc-trino-github-group-provider</artifactId>
-	<version>${project.version}</version>
+	<artifactId>meta-build</artifactId>
+	<version>${revision}</version>
     </parent>
 
     <groupId>org.osclimate</groupId>
     <artifactId>osc-github-rest-cli</artifactId>
-    <version>${project.version}</version>
+    <version>${revision}</version>
     <packaging>jar</packaging>
+
+    <dependencies>
+        <dependency>
+	    <groupId>org.osclimate</groupId>
+	    <artifactId>osc-github-rest</artifactId>
+	    <version>${project.version}</version>
+	</dependency>
+    </dependencies>
 
     <build>
         <plugins>
