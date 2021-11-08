@@ -1,4 +1,4 @@
-package org.osclimate.trino.groupprovider.cli;
+package org.osclimate.githubrest.cli;
 
 import org.osclimate.githubrest.model.Team;
 import org.osclimate.githubrest.GitHubRetrofit;
