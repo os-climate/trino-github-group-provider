@@ -4,6 +4,8 @@ import org.osclimate.githubrest.model.Team;
 import org.osclimate.githubrest.GitHubRetrofit;
 import org.osclimate.githubrest.GitHubRest;
 
+import okhttp3.logging.HttpLoggingInterceptor;
+
 import java.util.List;
 
 class ListTeams {
@@ -20,14 +22,17 @@ class ListTeams {
             System.exit(1);
         }
 
-        System.out.printf("teams for github org %s\n", org);
-
-        GitHubRest api = GitHubRetrofit.getClient(GitHubRest.class, "https://api.github.com");
+        GitHubRest api = GitHubRetrofit.getClient(
+            GitHubRest.class,
+            "https://api.github.com",
+            HttpLoggingInterceptor.Level.NONE);
 
         retrofit2.Response<List<Team>> response = api.listTeams("Bearer " + apiToken, org, 1000, 1).execute();
         List<Team> teams = response.body();
+
+        System.out.printf("teams for github org %s\n", org);
         for (Team t : teams) {
-            System.out.printf("team: %s\n", t.slug);
+            System.out.printf("    %s\n", t.slug);
         }
     }
 }

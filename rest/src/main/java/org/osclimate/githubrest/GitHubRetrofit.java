@@ -14,11 +14,11 @@ import retrofit2.converter.jackson.JacksonConverterFactory;
 public class GitHubRetrofit {
     // currently used to create GitHubRest api objects, however
     // note this is generic, and could create any Retrofit api interface type
-    public static <T> T getClient(Class<T> type, String url) {
+    public static <T> T getClient(Class<T> type, String url, HttpLoggingInterceptor.Level lev) {
         OkHttpClient.Builder clientBuilder = new OkHttpClient.Builder();
 
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
-        interceptor.setLevel(HttpLoggingInterceptor.Level.BASIC);
+        interceptor.setLevel(lev);
         clientBuilder.addInterceptor(interceptor);
 
         return new Retrofit.Builder()
@@ -30,6 +30,9 @@ public class GitHubRetrofit {
                     .registerModule(new JavaTimeModule())))
             .build()
             .create(type);
+    }
+    public static <T> T getClient(Class<T> type, String url) {
+        return getClient(type, url, HttpLoggingInterceptor.Level.BASIC);
     }
 }
 

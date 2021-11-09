@@ -7,6 +7,8 @@ import org.osclimate.githubrest.GitHubRest;
 
 import retrofit2.Response;
 
+import okhttp3.logging.HttpLoggingInterceptor;
+
 import java.util.List;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
@@ -26,7 +28,10 @@ class UserTeams {
             System.exit(1);
         }
 
-        GitHubRest api = GitHubRetrofit.getClient(GitHubRest.class, "https://api.github.com");
+        GitHubRest api = GitHubRetrofit.getClient(
+            GitHubRest.class,
+            "https://api.github.com",
+            HttpLoggingInterceptor.Level.NONE);
 
         Response<List<Team>> response = api.listTeams("Bearer " + apiToken, org, 1000, 1).execute();
         List<Team> teams = response.body();
