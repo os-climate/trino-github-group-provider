@@ -84,14 +84,13 @@
                     </registries>
                     <pushRegistry>${push.registry}</pushRegistry>
                     <tlsVerify>TRUE</tlsVerify>
-                    <runDirectory>${project.basedir}</runDirectory>
                     <images>
                         <image>
                             <name>${push.user}/${push.image.name}</name>
                             <build>
                                 <format>OCI</format>
                                 <pull>true</pull>
-                                <containerFile>image/Containerfile</containerFile>
+                                <containerFile>Containerfile</containerFile>
                                 <tags>
                                     <tag1>${push.image.tag}</tag1>
                                 </tags>
