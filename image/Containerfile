@@ -1,2 +1,3 @@
-FROM quay.io/opendatahub/trino:${trino.version}
+# this is a maven property set in pom.xml, and substituted using the podman-maven-plugin
+FROM ${trino.base.image}
 

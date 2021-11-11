@@ -16,6 +16,11 @@
     <packaging>pom</packaging>
 
     <properties>
+        <push.registry>your.registry.com</push.registry>
+        <push.user>your_user_name</push.user>
+        <push.image.name>trino</push.image.name>
+        <push.image.tag>${trino.version}-osc-gp-${revision}</push.image.tag>
+        <trino.base.image>quay.io/opendatahub/trino:${trino.version}</trino.base.image>
     </properties>
 
     <dependencies>
@@ -36,17 +41,17 @@
                     <registries>
                         <registry>quay.io</registry>
                     </registries>
-                    <pushRegistry>quay.io</pushRegistry>
+                    <pushRegistry>${push.registry}</pushRegistry>
                     <tlsVerify>TRUE</tlsVerify>
                     <images>
                         <image>
-                            <name>erikerlandson/trino</name>
+                            <name>${push.user}/${push.image.name}</name>
                             <build>
                                 <format>OCI</format>
                                 <pull>true</pull>
                                 <containerFile>Containerfile</containerFile>
                                 <tags>
-                                    <tag1>${trino.version}-osc-gp-${revision}</tag1>
+                                    <tag1>${push.image.tag}</tag1>
                                 </tags>
                             </build>
                         </image>
