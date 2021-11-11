@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.osclimate</groupId>
+        <artifactId>meta-build</artifactId>
+        <version>${revision}</version>
+    </parent>
+
+    <groupId>org.osclimate</groupId>
+    <artifactId>osc-trino-image</artifactId>
+    <version>${revision}</version>
+    <packaging>pom</packaging>
+
+    <properties>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.osclimate</groupId>
+            <artifactId>osc-trino-github-gp</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>nl.lexemmens</groupId>
+                <artifactId>podman-maven-plugin</artifactId>
+                <version>1.8.0</version>
+                <configuration>
+                    <registries>
+                        <registry>quay.io</registry>
+                    </registries>
+                    <pushRegistry>quay.io</pushRegistry>
+                    <tlsVerify>TRUE</tlsVerify>
+                    <images>
+                        <image>
+                            <name>erikerlandson/trino</name>
+                            <build>
+                                <format>OCI</format>
+                                <pull>true</pull>
+                                <containerFile>Containerfile</containerFile>
+                                <tags>
+                                    <tag1>${trino.version}-osc-gp-${revision}</tag1>
+                                </tags>
+                            </build>
+                        </image>
+                    </images>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

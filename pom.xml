@@ -10,19 +10,20 @@
     <packaging>pom</packaging>
 
     <properties>
-	<revision>0.1.0</revision> <!-- this project version -->
+        <revision>0.1.0</revision> <!-- this project version -->
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
-        <trino.version>359</trino.version>
-	<dep.jackson.version>2.13.0</dep.jackson.version>
-	<dep.retrofit2.version>2.9.0</dep.retrofit2.version>
-	<dep.okhttp3.version>4.9.2</dep.okhttp3.version>
+        <trino.version>362</trino.version>
+        <dep.jackson.version>2.13.0</dep.jackson.version>
+        <dep.retrofit2.version>2.9.0</dep.retrofit2.version>
+        <dep.okhttp3.version>4.9.2</dep.okhttp3.version>
     </properties>
 
     <modules>
         <module>rest</module>
-	<module>cli</module>
-	<module>plugin</module>
+        <module>cli</module>
+        <module>plugin</module>
+        <module>container</module>
     </modules>
 
     <build>
