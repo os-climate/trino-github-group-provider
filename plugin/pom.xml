@@ -16,6 +16,15 @@
     <!-- special packaging target from trino-maven-plugin -->
     <packaging>trino-plugin</packaging>
 
+    <properties>
+        <push.registry>your.registry.com</push.registry>
+        <push.user>your_user_name</push.user>
+        <push.image.name>trino</push.image.name>
+        <push.image.tag>${trino.version}-osc-gp-${revision}</push.image.tag>
+        <trino.base.image>quay.io/opendatahub/trino:${trino.version}</trino.base.image>
+        <project.root.dir>${project.basedir}</project.root.dir>
+    </properties>
+
     <dependencies>
         <dependency>
 	    <groupId>org.osclimate</groupId>
@@ -64,6 +73,32 @@
                 <artifactId>trino-maven-plugin</artifactId>
                 <version>10</version>
                 <extensions>true</extensions>
+            </plugin>
+            <plugin>
+                <groupId>nl.lexemmens</groupId>
+                <artifactId>podman-maven-plugin</artifactId>
+                <version>1.8.0</version>
+                <configuration>
+                    <registries>
+                        <registry>quay.io</registry>
+                    </registries>
+                    <pushRegistry>${push.registry}</pushRegistry>
+                    <tlsVerify>TRUE</tlsVerify>
+                    <runDirectory>${project.basedir}</runDirectory>
+                    <images>
+                        <image>
+                            <name>${push.user}/${push.image.name}</name>
+                            <build>
+                                <format>OCI</format>
+                                <pull>true</pull>
+                                <containerFile>image/Containerfile</containerFile>
+                                <tags>
+                                    <tag1>${push.image.tag}</tag1>
+                                </tags>
+                            </build>
+                        </image>
+                    </images>
+                </configuration>
             </plugin>
         </plugins>
     </build>

@@ -1,3 +1,8 @@
 # this is a maven property set in pom.xml, and substituted using the podman-maven-plugin
 FROM ${trino.base.image}
 
+USER trino:trino
+
+RUN mkdir /usr/lib/trino/plugin/osc-github-gp
+
+COPY plugin/target/osc-trino-github-gp-${revision}/*.jar /usr/lib/trino/plugin/osc-github-gp/
