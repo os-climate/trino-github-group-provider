@@ -23,7 +23,7 @@
         <module>rest</module>
         <module>cli</module>
         <module>plugin</module>
-        <module>container</module>
+        <module>image</module>
     </modules>
 
     <build>
