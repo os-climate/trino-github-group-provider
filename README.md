@@ -4,9 +4,19 @@ An implementation of Trino Group Provider, which will map GitHub org teams to co
 
 ## Build
 
-
+### build plugin jar files
+```sh
+$ cd /path/to/plugin/repo
+$ mvn clean package
 ```
-mvn clean package
+
+### build and push image
+- Be sure to do this after a successful package build above.
+- Specify your preferred image registry and username. 
+```sh
+$ podman login -u your_user_name your.registry.com 
+$ mvn -Dpush.registry=your.registry.com -Dpush.user=your_user_name -pl plugin podman:build
+$ mvn -Dpush.registry=your.registry.com -Dpush.user=your_user_name -pl plugin podman:push
 ```
 
 ## cli
@@ -34,17 +44,7 @@ team: physrisk-data-pipeline-admin
 team: physrisk-data-pipeline-developers
 ```
 
-## Deploy
-
-### Copy artifacts
-
-Copy the following artifacts from build or from release to the Trino plugin folder (`<path_to_trino>/plugin/osc-github-gp/`)
-
-```
-target/trino-group-provider-osc-github-gp-0.1.0/*.jar
-```
-
-### Prepare configuration file
+### plugin configuration file
 
 Create `<path_to_trino_config>/group-provider.properties` with the following required parameters, e.g.:
 
@@ -52,10 +52,4 @@ Create `<path_to_trino_config>/group-provider.properties` with the following req
 group-provider.name=osc-github-gp
 # add parameters when I know what they are
 ```
-
-#### Optional Parameters
-
-| Configuration                            | Default  | Description                |
-| ---------------------------------------- | -------- | -------------------------- |
-| x | x | x |
 
