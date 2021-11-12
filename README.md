@@ -50,6 +50,7 @@ Create `<path_to_trino_config>/group-provider.properties` with the following req
 
 ```
 group-provider.name=osc-github-gp
-# add parameters when I know what they are
+github.org=os-climate
+github.token=xxxxxx
 ```
 
