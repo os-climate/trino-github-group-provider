@@ -54,3 +54,7 @@ github.org=os-climate
 github.token=xxxxxx
 ```
 
+## references
+This plugin was based on the following LDAP group-provider:
+https://github.com/arghya18/trino-group-provider-ldap-ad
+
