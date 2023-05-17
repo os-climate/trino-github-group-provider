@@ -1,1 +1,3 @@
 target
+# Credentials / Secrets
+credentials.env
